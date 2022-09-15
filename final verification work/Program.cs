@@ -38,5 +38,39 @@ string[] FillArrayStr()
     return array;
 }
 
+string[] ArrayLenNoMore3 (string[] array)
+{
+    int count = 0;
+    string numbers = "";
+    for(int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3) 
+        {
+            count++;
+            numbers = numbers + i.ToString() + ",";
+        } 
+    }
+
+    string[] array3 = new string[count];
+    int j = 0;
+    string index = "";
+    foreach(char c in numbers)
+    {
+        if(c == ',')
+        {
+            array3[j] = array[int.Parse(index)];
+            index = "";
+            j++;
+        }
+        else index += c.ToString();
+    }
+
+    return array3;
+}
+
 string[] newArray = FillArrayStr();
-Console.WriteLine(string.Join(" ", newArray));
+Console.WriteLine(newArray.Length == 0 ? "пустой массив": string.Join(" ", newArray));
+Console.WriteLine();
+
+string[] newArray3 = ArrayLenNoMore3((string[]) newArray.Clone());
+Console.WriteLine(newArray3.Length == 0 ? "строк длинной 3 символа и менее - нет": string.Join(" ", newArray3));

@@ -53,7 +53,7 @@ string[] ArrayLenNoMore3 (string[] array)
 
     string[] array3 = new string[count];
     int j = 0;
-    string index = "";
+    string index = "";  // можно numbers разбить с помощью Split и упростить задачу, но в учебных целях делать этого не будем
     foreach(char c in numbers)
     {
         if(c == ',')
